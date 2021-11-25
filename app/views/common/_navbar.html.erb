@@ -2,7 +2,7 @@
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
-      <a class="navbar-brand" href="/">Job Listing </a>
+      <a class="navbar-brand" href="/">ShoppingGo</a>
     </div>
 
       <!-- Collect the nav links, forms, and other content for toggling -->
@@ -15,7 +15,6 @@
             <i class="fas fa-sign-in-alt" aria-hidden="true"></i> 登入
             <% end %>
           </li> 
-          <%#= link_to "登入", new_user_session_path, class: "nav-link" %>
         <% else %>
           <li class="nav-item dropdown ">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" 
@@ -23,11 +22,13 @@
               Hi!, <%= current_user.email %>
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <%# <div class="dropdown-divider"></div> %>
+                <% if current_user.admin? %>
+                <%= link_to("Admin 頁面", admin_products_path, class: "dropdown-item" ) %>
+                <% end %>
+                <%= link_to("Product 頁面", products_path, class: "dropdown-item" ) %>
                 <%= link_to destroy_user_session_path, method: :delete, class: "dropdown-item" do %>
                 <i class="fas fa-sign-in-alt" aria-hidden="true"></i> 登出
                 <% end %>
-              <%#= link_to("登出", destroy_user_session_path, method: :delete ,class: "dropdown-item") %> 
             </div>
           </li>
         <% end %>

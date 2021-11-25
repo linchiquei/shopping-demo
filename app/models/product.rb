@@ -9,6 +9,8 @@
 #  price       :integer
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
+#  image       :string
 #
 class Product < ApplicationRecord
+  mount_uploader :image, ImageUploader
 end
