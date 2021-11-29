@@ -27,6 +27,7 @@
               Hi!, <%= current_user.email %>
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <%= link_to "個人訂單列表", account_orders_path, class: "dropdown-item" %>
                 <% if current_user.admin? %>
                 <%= link_to("Admin 頁面", admin_products_path, class: "dropdown-item" ) %>
                 <% end %>
