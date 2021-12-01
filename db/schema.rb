@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_30_040601) do
+ActiveRecord::Schema.define(version: 2021_12_01_040651) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -40,6 +40,8 @@ ActiveRecord::Schema.define(version: 2021_11_30_040601) do
     t.string "token"
     t.boolean "is_paid", default: false
     t.string "payment_method"
+    t.string "aasm_state", default: "order_placed"
+    t.index ["aasm_state"], name: "index_orders_on_aasm_state"
   end
 
   create_table "product_lists", force: :cascade do |t|

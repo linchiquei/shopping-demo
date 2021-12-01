@@ -48,9 +48,5 @@ class Admin::ProductsController < ApplicationController
     params.require(:product).permit(:title, :description, :quantity, :price, :image)
   end
 
-  def require_is_admin
-    if !current_user.admin?
-      redirect_to "/", alert: "You are not admin."
-    end
-  end
+
 end
