@@ -5,12 +5,10 @@
     <%= link_to("以支付宝支付", pay_with_alipay_order_path(order.token), :method => :post, :class => "mx-2 btn btn-danger") %>
     <%= link_to("以微信支付", pay_with_wechat_order_path(order.token), :method => :post, :class => "mx-2 btn btn-danger") %>
   <% when "paid" %>
-    <%= link_to("申请取消订单", apply_to_cancel_paid_order_path(order.token), method: :post, class: " mr-auto btn btn-info", data: { confirm: "確認要取消，提出申請後不能取消申請！" }) %>
+    <%= link_to("申请取消订单", apply_to_cancel_order_path(order.token), method: :post, class: " mr-auto btn btn-info", data: { confirm: "確認要取消，提出申請後不能取消申請！" }) %>
     <p class="text-center">已成功付款訂單</p>
   <% when "order_cancelled" %>
     <p class="text-center">已成功取消訂單</p>
   <% when "order_apply_cancel" %>
     <p class="text-center">等待商家確認取消訂單</p>
-  <% when "order_apply_cancel_from_paid" %>
-    <p class="text-center">等待商家確認取消訂單，並退還金額給你</p>
   <% end %>

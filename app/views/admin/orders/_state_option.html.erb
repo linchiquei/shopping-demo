@@ -5,10 +5,6 @@
     <%= link_to("取消订单",
                 cancel_admin_order_path(order),
                 class: "btn btn-default btn-sm", method: :post) %>
-  <% when "order_apply_cancel_from_paid" %>
-    <%= link_to("取消订单",
-                cancel_admin_order_path(order),
-                class: "btn btn-default btn-sm", method: :post) %>
   <% when "order_placed" %>
     <%= link_to("取消订单",
                 cancel_admin_order_path(order),

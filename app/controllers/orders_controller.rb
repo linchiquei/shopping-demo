@@ -51,14 +51,6 @@ class OrdersController < ApplicationController
     redirect_back fallback_location: root_path
   end
 
-  def apply_to_cancel_paid
-    @order = Order.find_by_token(params[:id])
-    @order.order_apply_cancel_from_paid!
-    OrderMailer.apply_cancel(@order).deliver!
-    flash[:notice] = "已提交申请"
-    redirect_back fallback_location: root_path
-  end
-
   private
   def order_params
     params.require(:order).permit(:billing_name, :billing_address, :shipping_name, :shipping_address)

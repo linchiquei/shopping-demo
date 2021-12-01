@@ -37,7 +37,6 @@ class Order < ApplicationRecord
     state :shipped
     state :order_cancelled
     state :order_apply_cancel
-    state :order_apply_cancel_from_paid
     state :good_returned
 
     event :make_payment, after_commit: :pay! do
@@ -58,16 +57,12 @@ class Order < ApplicationRecord
 
     #商家可以直接申請退訂單
     event :cancel_order do
-      transitions from: [:order_placed, :paid, :order_apply_cancel, :order_apply_cancel_from_paid], to: :order_cancelled
+      transitions from: [:order_placed, :paid, :order_apply_cancel], to: :order_cancelled
     end
 
     #使用者提出申請
     event :order_apply_cancel do
       transitions from: :order_placed, to: :order_apply_cancel
-    end
-
-    event :order_apply_cancel_from_paid do
-      transitions from: :paid, to: :order_apply_cancel_from_paid
     end
   end
 

@@ -7,8 +7,6 @@ module Admin::OrdersHelper
       "已付款"
     when "order_apply_cancel"
       "申請取消訂單"
-    when "order_apply_cancel_from_paid"
-      "申請取消訂單（已付款）"
     when "order_cancelled"
       "訂單已取消"
     when "shipping"
