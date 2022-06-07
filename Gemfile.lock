@@ -288,7 +288,7 @@ DEPENDENCIES
   letter_opener
   listen (~> 3.3)
   mini_magick
-  pg (~> 1.1)
+  pg
   puma (~> 5.0)
   qiniu-rs
   rails (~> 6.1.4, >= 6.1.4.1)
