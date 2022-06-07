@@ -5,6 +5,9 @@ class ProductsController < ApplicationController
 
   def show
     @product = Product.find(params[:id])
+    Rails.logger.info "-------------------------------------"
+    Rails.logger.info "#{@product}"
+    Rails.logger.info "-------------------------------------"
   end
 
   def add_to_cart
