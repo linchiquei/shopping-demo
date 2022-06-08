@@ -117,4 +117,15 @@ Rails.application.configure do
   # config.active_record.database_selector = { delay: 2.seconds }
   # config.active_record.database_resolver = ActiveRecord::Middleware::DatabaseSelector::Resolver
   # config.active_record.database_resolver_context = ActiveRecord::Middleware::DatabaseSelector::Resolver::Session
+  config.action_mailer.default_url_options = { :host => 'https://shopping-demo-ricky.herokuapp.com/'}
+  config.action_mailer.delivery_method = :smtp
+  ActionMailer::Base.smtp_settings = {
+      address: "smtpcloud.sohu.com",
+      port: 25,
+      domain: "heroku.com",
+      authentication: "login",
+      enable_starttls_auto: true,
+      user_name: ENV["SEND_CLOUD_USER_NAME"],
+      password: ENV["SEND_CLOUD_USER_KEY"]
+    }
 end
