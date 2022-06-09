@@ -120,7 +120,7 @@ Rails.application.configure do
   config.action_mailer.default_url_options = { :host => 'https://shopping-demo-ricky.herokuapp.com/'}
   config.action_mailer.delivery_method = :smtp
   ActionMailer::Base.smtp_settings = {
-      address: "smtpcloud.sohu.com",
+      address: "smtp.sendcloud.net",
       port: 25,
       domain: "heroku.com",
       authentication: "login",
